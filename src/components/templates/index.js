@@ -1,0 +1,1 @@
+export home from './home'
