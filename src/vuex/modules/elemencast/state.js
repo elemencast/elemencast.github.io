@@ -8,8 +8,8 @@ export default {
             audio: ''
         }
     ],
-    player: {},
-    canvas: {},
+    player: null,
+    canvas: null,
     currentTime: '00:00',
     audioStatus: 'stop',
     links: [

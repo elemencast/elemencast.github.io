@@ -1,5 +1,6 @@
 <template lang="pug">
     #episodios
+        loading(:downloading='downloading')
         episodio-header(
             :episodio='episodio.id',
             :titulo='episodio.titulo.resumido',
@@ -9,7 +10,10 @@
 
 <script>
     import { mapGetters, mapActions } from 'vuex'
-    import { episodioHeader } from '@/components/atoms'
+    import {
+        episodioHeader,
+        loading
+    } from '@/components/atoms'
     import { player } from '@/components/organisms'
 
     export default {
@@ -27,6 +31,7 @@
         }),
         components: {
             episodioHeader,
+            loading,
             player
         },
         mounted: function () {
@@ -36,7 +41,13 @@
             ...mapGetters([
                 'getEpisodio',
                 'getEpisodios'
-            ])
+            ]),
+            downloading () {
+                if (this.episodio.audio) {
+                    return false
+                }
+                return true
+            }
         },
         methods: {
             ...mapActions([

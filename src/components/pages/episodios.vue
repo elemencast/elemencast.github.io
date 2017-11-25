@@ -6,6 +6,18 @@
         height: 100%
         width: 100%
 
+        > .loading
+            position: absolute
+            background-color: $black
+            border-radius: 50%
+            bottom: $pixel * 2.9
+            +transition(.2s)
+            display: none
+
+            &-pulse
+                display: inline-block
+                +animation(pulse, 800ms, ease-in-out, 0, infinite, normal, running)
+
         > .header
             padding: $pixel * 1.5
             padding-top: $pixel * 3
@@ -62,6 +74,24 @@
 
             > audio
                 display: none
+
+        @keyframes pulse
+            0%
+                bottom: $pixel * 3.5
+                height: $pixel * 1.2
+                width: $pixel * 1.2
+            33%
+                height: $pixel * 2
+                width: $pixel * 2
+                bottom: $pixel * 3
+            63%
+                height: $pixel * 2
+                width: $pixel * 2
+                bottom: $pixel * 3
+            100%
+                bottom: $pixel * 3.5
+                height: $pixel * 1.2
+                width: $pixel * 1.2
 </style>
 
 <template lang="pug">

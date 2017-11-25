@@ -11,13 +11,10 @@
     import { mapGetters, mapActions } from 'vuex'
 
     export default {
-        props: [],
-        data: () => ({}),
-        created: function () {},
-        mounted: function () {},
-        updated: function () {},
-        destroyed: function () {},
-        components: {},
+        mounted: function () {
+            this.setAudioStatus('stop')
+            this.setCurrentTime('00:00')
+        },
         computed: {
             ...mapGetters([
                 'getCurrentTime',
@@ -34,7 +31,8 @@
         },
         methods: {
             ...mapActions([
-                'setAudioStatus'
+                'setAudioStatus',
+                'setCurrentTime'
             ]),
             toggleAudio () {
                 if (this.getAudioStatus === 'play') {
@@ -43,8 +41,6 @@
                     this.setAudioStatus('play')
                 }
             }
-        },
-        filters: {},
-        watch: {}
+        }
     }
 </script>

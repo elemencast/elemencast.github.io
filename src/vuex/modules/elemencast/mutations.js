@@ -10,7 +10,9 @@ const mutations = {
         return state
     },
     playerStatus: (state, status) => {
-        state.player[status]()
+        if (state.player) {
+            state.player[status]()
+        }
         return state
     },
     canvas: (state, canvas) => {

@@ -6,7 +6,7 @@
             | O intuito desse podcast é devolver pra comunidade o que
             | eu tenho aprendido com ela durante anos e eu espero
             | fortemente que você me ajude nessa jornada.
-            | Durante toda semana eu, Luigui Delyer, pretendo trazer
+            | Toda semana eu, Luigui Delyer, pretendo trazer
             | alguns drops de conteúdo direto sobre diversos assuntos
             | relacionados a Front-end, Javascript, CSS, SASS, Pug,
             | HTML5, programação funcional, NodeJS, mapas e GIS,

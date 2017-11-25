@@ -14,6 +14,9 @@
                 this.setCurrentTime(this.processingTime(event))
             }, false)
         },
+        destroyed: function () {
+            this.setPlayer(null)
+        },
         methods: {
             ...mapActions([
                 'setPlayer',
