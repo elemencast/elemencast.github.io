@@ -1,4 +1,4 @@
-import * as elemencast from './elemencast'
+import elemencast from './elemencast'
 
 export default {
     elemencast

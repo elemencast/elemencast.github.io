@@ -9,15 +9,30 @@ export default new Router({
     mode: 'history',
     routes: [
         {
-            path: '/',
-            name: 'home',
+            path: '/sobre',
+            name: 'sobre',
             components: {
-                content: load('templates/home')
+                content: load('pages/sobre')
             }
         },
         {
+            path: '/episodios',
+            name: 'episodios',
+            components: {
+                content: load('pages/episodios')
+            }
+        },
+        {
+            path: '/episodios/:id',
+            name: 'episodio',
+            components: {
+                content: load('pages/episodios')
+            },
+            props: true
+        },
+        {
             path: '*',
-            redirect: '/'
+            redirect: '/episodios'
         }
     ]
 })

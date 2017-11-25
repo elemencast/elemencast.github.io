@@ -1,10 +1,7 @@
-<style scoped lang="sass">
-    @import ../sass/elemencast
+<style lang="sass">
 </style>
 
 <template lang="pug">
-    #elemencast
-        router-view(name="content")
 </template>
 
 <script>

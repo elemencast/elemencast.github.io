@@ -1,7 +1,27 @@
-$pixel-proportion: 8px
+$pixel: 8px
+$positions: ('left', 'top', 'bottom', 'right')
 
 =border-box
     box-sizing: border-box
+
+=make-margin()
+    $positions: ('left': 'l', 'top': 't', 'bottom': 'b', 'right': 'r')
+    .m
+        @each $position, $element in $positions
+            &__#{$element}
+                @each $modifier in ('xs', 's', 'm', 'l')
+                    &--#{$modifier}
+                        @if $modifier == 'xs'
+                            margin-#{$position}: $pixel / 2
+                        @else if $modifier == 's'
+                            margin-#{$position}: $pixel
+                        @else if $modifier == 'm'
+                            margin-#{$position}: $pixel * 2
+                        @else if $modifier == 'l'
+                            margin-#{$position}: $pixel * 3
+
+
+
 
 =flex($typeFlex, $wrapFlex, $justifyFlex, $alignFlex)
     display: flex !important

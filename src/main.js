@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import router from './router'
 import store from './vuex'
-import elemencast from './components/elemencast'
+import elemencast from '@/components/pages/elemencast'
 
 Vue.config.productionTip = true
 Vue.config.debug = true
