@@ -1,4 +1,5 @@
-import { prefix } from '@/config'
+import config from '@/config'
+const prefix = config.prefix
 
 let logCounter = 0
 let errorCounter = 0

@@ -1,9 +1,9 @@
-import { endpoints } from '@/config'
+import endpoints from './endpoints'
 import axios from 'axios'
 
-const remote = axios.create({
-    baseURL: endpoints.active,
+const http = axios.create({
+    baseURL: endpoints('development'),
     timeout: 100000
 })
 
-export default remote
+export default http

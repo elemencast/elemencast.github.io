@@ -1,4 +1,5 @@
-import { prefix } from '@/config'
+import config from '@/config'
+const prefix = config.prefix
 
 const localStorage = window.localStorage
 

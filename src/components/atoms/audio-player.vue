@@ -1,23 +1,18 @@
 <template lang="pug">
-    audio(:src='getEpisodio.audio' ref='audio' controls)
+    audio(:src='src' ref='audio' controls)
 </template>
 
 <script>
-    import { mapGetters, mapActions } from 'vuex'
+    import { mapActions } from 'vuex'
 
     export default {
-        created: function () {},
+        props: ['src'],
         mounted: function () {
             this.setPlayer(this.$refs.audio)
 
             this.$refs.audio.addEventListener('timeupdate', event => {
                 this.setCurrentTime(this.processingTime(event))
             }, false)
-        },
-        computed: {
-            ...mapGetters([
-                'getEpisodio'
-            ])
         },
         methods: {
             ...mapActions([

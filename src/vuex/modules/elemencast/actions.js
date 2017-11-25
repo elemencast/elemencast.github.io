@@ -1,4 +1,5 @@
 // import Vue from 'vue'
+import axios from '@/axios'
 
 export default {
     setAudioStatus ({ commit }, value) {
@@ -13,5 +14,9 @@ export default {
     },
     setCurrentTime ({ commit }, currentTime) {
         commit('currentTime', currentTime)
+    },
+    downloadEpisodios ({ commit }) {
+        axios.episodios.getAll()
+            .then(data => commit('episodios', data))
     }
 }

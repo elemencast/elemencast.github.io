@@ -1,7 +1,8 @@
-export const endpoints = {
-    development: '',
+const config = {
+    prefix: 'ELEMENCAST',
+    development: 'http://0.0.0.0:8080',
     stage: '',
-    production: '',
-    active: this.production
+    production: 'https://elemencast.github.io'
 }
-export const prefix = 'ELEMENCAST'
+
+export default config

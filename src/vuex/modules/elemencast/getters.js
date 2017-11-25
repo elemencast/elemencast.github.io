@@ -1,25 +1,35 @@
 // import Vue from 'vue'
 
-export default {
-    getLinks (state) {
+const getters = {
+    getLinks: state => {
         return state.links
     },
-    getIcones (state) {
+    getIcones: state => {
         return state.icones
     },
-    getCurrentTime (state) {
+    getCurrentTime: state => {
         return state.currentTime
     },
-    getAudioStatus (state) {
+    getAudioStatus: state => {
         return state.audioStatus
     },
-    getEpisodio (state) {
-        return state.episodio
+    getEpisodios: state => {
+        return state.episodios
     },
-    getPlayer (state) {
+    getEpisodio: (state, getters) => (id) => {
+        return getters.getEpisodios.reduce((acc, elm, indx) => {
+            if (elm.id === id) {
+                acc = elm
+            }
+            return acc
+        }, {})
+    },
+    getPlayer: state => {
         return state.player
     },
-    getCanvas (state) {
+    getCanvas: state => {
         return state.canvas
     }
 }
+
+export default getters

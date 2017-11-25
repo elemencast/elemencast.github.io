@@ -1,6 +1,6 @@
 import { remote } from '../http'
 
-export const putContent = data => {
+export const put = data => {
     const headers = {
         'Content-Type': 'multipart/form-data'
     }

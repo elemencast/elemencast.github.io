@@ -2,11 +2,11 @@
     .player
         controles
         espectro(width='111px', height='305px')
-        audio-player
+        audio-player(:src='audio')
 </template>
 
 <script>
-    import { mapGetters, mapActions } from 'vuex'
+    import { mapGetters } from 'vuex'
     import { audioVisualizer } from '@/components/bosons'
     import { controles } from '@/components/molecules'
     import {
@@ -15,14 +15,10 @@
     } from '@/components/atoms'
 
     export default {
-        props: [],
-        data: () => ({}),
-        created: function () {},
+        props: ['audio'],
         mounted: function () {
             audioVisualizer(this.getPlayer, this.getCanvas)
         },
-        updated: function () {},
-        destroyed: function () {},
         components: {
             controles,
             espectro,
@@ -33,11 +29,6 @@
                 'getPlayer',
                 'getCanvas'
             ])
-        },
-        methods: {
-            ...mapActions([])
-        },
-        filters: {},
-        watch: {}
+        }
     }
 </script>

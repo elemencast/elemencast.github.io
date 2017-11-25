@@ -1,12 +1,13 @@
 // import Vue from 'vue'
 
 export default {
-    episodio: {
-        id: '1',
-        titulo: 'Atomic Design',
-        subtitulo: 'Parte 1',
-        audio: '/static/audio/atomic.mp3'
-    },
+    episodios: [
+        {
+            titulo: '',
+            subtitulo: '',
+            audio: ''
+        }
+    ],
     player: {},
     canvas: {},
     currentTime: '00:00',
