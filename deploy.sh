@@ -28,4 +28,4 @@ git init
 git remote add origin $GITURL
 git add .
 git commit -am "deploy"
-git push origin development:master --force
+git push origin master:master --force

@@ -1,7 +1,10 @@
 <style lang="sass">
     @import ../../sass/imports/_extend
 
-    .home
+    #sobre
+        > p
+            text-align: left
+
         &:last-child::after
             content: '.'
             color: $white
@@ -9,60 +12,15 @@
 </style>
 
 <template lang="pug">
-    .home.square
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
-        h1 oi!
+    sobre
 </template>
 
 <script>
-    import { mapState, mapGetters, mapActions } from 'vuex'
+    import { sobre } from '@/components/templates'
 
     export default {
-        props: [],
-        data: () => ({}),
-        created: function () {},
-        mounted: function () {},
-        updated: function () {},
-        destroyed: function () {},
-        components: {},
-        computed: {
-            ...mapGetters([]),
-            ...mapState({})
-        },
-        methods: {
-            ...mapActions([])
-        },
-        filters: {},
-        watch: {}
+        components: {
+            sobre
+        }
     }
 </script>

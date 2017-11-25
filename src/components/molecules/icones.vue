@@ -2,6 +2,7 @@
     .icones
         icone(v-for='(icone, index) in items',
             :key='index',
+            :nome='icone.nome',
             :href='icone.href',
             :image='icone.imagem')
 </template>

@@ -4,6 +4,9 @@ const getters = {
     getLinks: state => {
         return state.links
     },
+    getFerramentas: state => {
+        return state.ferramentas
+    },
     getIcones: state => {
         return state.icones
     },

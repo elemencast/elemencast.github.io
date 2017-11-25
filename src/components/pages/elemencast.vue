@@ -6,8 +6,8 @@
         height: 100%
         width: 100%
 
-        .container
-            .content
+        > .container
+            > .content
                 +flex(column, n, flex-start, center)
                 background-image: url('/static/img/background.svg')
                 background-repeat: no-repeat
@@ -32,25 +32,25 @@
 
                     > .square
                         width: $pixel * 13.81 + 24
-                        height: $pixel * 37.97
-                        padding: $pixel * 2.3
-                        padding-right: $pixel * 2.3 + 24
+                        height: $pixel * 38.3
+                        padding: $pixel * 1.3
+                        padding-top: $pixel * 3
+                        padding-right: $pixel * 1.3 + 24
                         overflow-y: scroll
                         overflow-x: hidden
                         +border-box()
 
-            .logo
+            > .logo
                 +flex(column, n, flex-start, center)
                 width: 100%
                 margin-top: $pixel * -1
 
-        .menu
+        > .menu
             +flex(row, n, center, center)
-            margin: $pixel
-            margin-top: 0
             width: 100%
+            z-index: 9
 
-            .item
+            > .item
                 > a
                     display: inline-block
                     color: $black
@@ -67,10 +67,38 @@
                     margin-right: $pixel
 
         .icones
-            +flex(row, n, center, center)
+            +flex(row, n, center, flex-start)
 
-            &-item
-                margin: $pixel * 2
+            &__item
+                +flex(column, n, flex-start, center)
+                margin-bottom: $pixel * 2
+                margin-left: $pixel * -1
+                margin-right: $pixel * -1
+                max-width: $pixel * 8.75
+                width: $pixel * 8.75
+                min-width: $pixel * 8.75
+
+                &:first-of-type
+                    margin-left: 0
+
+                &:last-of-type
+                    margin-right: 0
+
+                &:hover
+                    .icones__item-tip
+                        opacity: 1
+
+                &-tip
+                    opacity: 0
+                    border-radius: $pixel
+                    background-color: $black
+                    color: $white
+                    margin-top: $pixel * -2.5
+                    padding: $pixel
+                    padding-right: $pixel * 2
+                    padding-left: $pixel * 2
+                    +border-box()
+                    +transition(.2s)
 
         .footer
             +flex(column, n, center, center)

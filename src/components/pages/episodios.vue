@@ -44,6 +44,7 @@
                 height: 100%
 
                 > .button
+                    +cursor-pointer()
                     > img
                         width: $pixel * 8
                         height: $pixel * 8

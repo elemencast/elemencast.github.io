@@ -6,13 +6,20 @@ Vue.use(Router)
 const load = component => () => import(`@/components/${component}.vue`)
 
 export default new Router({
-    mode: 'history',
+    mode: 'hash',
     routes: [
         {
             path: '/sobre',
             name: 'sobre',
             components: {
                 content: load('pages/sobre')
+            }
+        },
+        {
+            path: '/ferramentas',
+            name: 'ferramentas',
+            components: {
+                content: load('pages/ferramentas')
             }
         },
         {
