@@ -35,7 +35,7 @@
             player
         },
         mounted: function () {
-            return this.downloadEpisodios()
+            return this.downloadEpisodes()
         },
         computed: {
             ...mapGetters([
@@ -51,7 +51,7 @@
         },
         methods: {
             ...mapActions([
-                'downloadEpisodios'
+                'downloadEpisodes'
             ])
         },
         watch: {

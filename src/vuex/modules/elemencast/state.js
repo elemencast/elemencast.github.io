@@ -8,6 +8,7 @@ export default {
             audio: ''
         }
     ],
+    informationPopup: false,
     player: null,
     canvas: null,
     currentTime: '00:00',

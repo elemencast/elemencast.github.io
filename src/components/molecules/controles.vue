@@ -1,8 +1,8 @@
 <template lang="pug">
     .control
         .buttons
-            .button.small
-                img(src='/static/img/info.svg')
+            .button.small(@click='toggleInfo()')
+                img(:src='infoIcon')
 
             .button.big(@click='toggleAudio()')
                 img(:src='buttonIcon')
@@ -28,15 +28,22 @@
         computed: {
             ...mapGetters([
                 'getCurrentTime',
-                'getAudioStatus'
+                'getAudioStatus',
+                'getInfoPanel'
             ]),
             buttonIcon () {
                 if (this.getAudioStatus === 'play') {
                     return '/static/img/pause.svg'
-                } else if (this.getAudioStatus === 'pause' ||
-                            this.getAudioStatus === 'stop') {
-                    return '/static/img/play.svg'
                 }
+
+                return '/static/img/play.svg'
+            },
+            infoIcon () {
+                if (this.getInfoPanel) {
+                    return '/static/img/info2.svg'
+                }
+
+                return '/static/img/info.svg'
             },
             downloadFile () {
                 return this.src.split('/')[3]
@@ -45,14 +52,22 @@
         methods: {
             ...mapActions([
                 'setAudioStatus',
-                'setCurrentTime'
+                'setCurrentTime',
+                'setInfoPanel'
             ]),
             toggleAudio () {
                 if (this.getAudioStatus === 'play') {
                     return this.setAudioStatus('pause')
-                } else {
-                    return this.setAudioStatus('play')
                 }
+
+                return this.setAudioStatus('play')
+            },
+            toggleInfo () {
+                if (this.getInfoPanel) {
+                    return this.setInfoPanel(false)
+                }
+
+                return this.setInfoPanel(true)
             }
         }
     }

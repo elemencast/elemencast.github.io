@@ -20,7 +20,6 @@
 
         > .header
             padding: $pixel * 1.5
-            padding-top: $pixel * 3
             padding-bottom: 0
 
             > .ep-id

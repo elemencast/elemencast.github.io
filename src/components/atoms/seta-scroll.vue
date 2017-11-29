@@ -1,5 +1,5 @@
 <style lang="sass">
-    @import ../../sass/elemencast
+    @import ../../sass/imports/_extend
 
     .seta
         position: fixed

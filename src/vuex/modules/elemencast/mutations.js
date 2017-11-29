@@ -19,6 +19,10 @@ const mutations = {
         state.canvas = canvas
         return state
     },
+    displayInformation: (state, value) => {
+        state.informationPopup = value
+        return state
+    },
     currentTime: (state, currentTime) => {
         state.currentTime = currentTime
         return state

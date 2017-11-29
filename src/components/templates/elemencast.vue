@@ -1,3 +1,12 @@
+<style lang="sass">
+    @import ../../sass/imports/_extend
+
+    #elemencast
+        +flex(column, n, center, center)
+        height: 100%
+        width: 100%
+</style>
+
 <template lang="pug">
     #elemencast
         conteiner

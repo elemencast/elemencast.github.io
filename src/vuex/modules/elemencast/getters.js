@@ -1,38 +1,22 @@
 // import Vue from 'vue'
 
 const getters = {
-    getLinks: state => {
-        return state.links
-    },
-    getFerramentas: state => {
-        return state.ferramentas
-    },
-    getIcones: state => {
-        return state.icones
-    },
-    getCurrentTime: state => {
-        return state.currentTime
-    },
-    getAudioStatus: state => {
-        return state.audioStatus
-    },
-    getEpisodios: state => {
-        return state.episodios
-    },
-    getEpisodio: (state, getters) => id => {
-        return getters.getEpisodios.reduce((acc, elm, indx) => {
+    getLinks: state => state.links,
+    getFerramentas: state => state.ferramentas,
+    getIcones: state => state.icones,
+    getCurrentTime: state => state.currentTime,
+    getAudioStatus: state => state.audioStatus,
+    getEpisodios: state => state.episodios,
+    getEpisodio: (state, getters) => id =>
+        getters.getEpisodios.reduce((acc, elm, indx) => {
             if (elm.id === id) {
                 acc = elm
             }
             return acc
-        }, {})
-    },
-    getPlayer: state => {
-        return state.player
-    },
-    getCanvas: state => {
-        return state.canvas
-    }
+        }, {}),
+    getPlayer: state => state.player,
+    getCanvas: state => state.canvas,
+    getInfoPanel: state => state.informationPopup
 }
 
 export default getters

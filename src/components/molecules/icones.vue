@@ -1,3 +1,10 @@
+<style lang="sass">
+    @import ../../sass/imports/_extend
+
+    .icones
+        +flex(row, n, center, flex-start)
+</style>
+
 <template lang="pug">
     .icones
         icone(v-for='(icone, index) in items',
