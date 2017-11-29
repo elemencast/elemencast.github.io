@@ -1,7 +1,16 @@
 <template lang="pug">
     .control
-        .button(@click='toggleAudio()')
-            img(:src="buttonIcon")
+        .buttons
+            .button.small
+                img(src='/static/img/info.svg')
+
+            .button.big(@click='toggleAudio()')
+                img(:src='buttonIcon')
+
+            a.button.small(href='/static/audio/ep1-atomic-design.mp3',
+                target='_blank',
+                download='ep1-atomic-design.mp3')
+                img(src='/static/img/download.svg')
 
         .duration
             .currentTime {{getCurrentTime}}
@@ -15,6 +24,7 @@
             this.setAudioStatus('stop')
             this.setCurrentTime('00:00')
         },
+        components: {},
         computed: {
             ...mapGetters([
                 'getCurrentTime',

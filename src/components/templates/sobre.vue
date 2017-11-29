@@ -13,10 +13,11 @@
             | dentre outros temas que surgirão no decorrer do caminho.
             | Muitos amigos da comunidade também estarão aqui comigo,
             | então pode ficar tranquilo que vem coisa boa pela frente!
+            <br>
             | Me ajude a fazer este podcast ficar ainda mais com a cara
-            | da nossa comunidade. Troque uma ideia comigo e vamos juntos
+            | da nossa comunidade, vem trocar ideia comigo e vamos juntos
             | moldar o conteúdo que queremos ter.
-            | Eu também quero te motivar a criar conteúdo também!
+            | Eu quero te motivar a criar conteúdo também!
             | Então trata de postar no seu blog ou abrir um canal
             | no YouTube. Assim a gente troca conteúdo!
             <br>
@@ -25,8 +26,8 @@
             | e várias outras coisas legais, além do fato de que
             | toda produção do podcast é totalmente feita com
             | ferramentas gratuitas e/ou open-source. Dá uma olhada
-            | no link ali em baixo sobre as ferramentas que eu usei
-            | eu listei tudo ali.
+            | no link ali em baixo sobre as ferramentas que eu usei,
+            | tá tudo listado ali.
             <br>
             <br>
             | Se você encontrou alguma coisa no site que não gostou,

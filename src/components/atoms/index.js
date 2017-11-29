@@ -5,6 +5,7 @@ import espectro from './espectro'
 import audioPlayer from './audio-player'
 import ferramenta from './ferramenta'
 import loading from './loading'
+import roundButton from './round-button'
 
 export {
     icone,
@@ -13,5 +14,6 @@ export {
     espectro,
     audioPlayer,
     ferramenta,
-    loading
+    loading,
+    roundButton
 }

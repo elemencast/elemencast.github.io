@@ -55,11 +55,34 @@
                 width: 100%
                 height: 100%
 
-                > .button
-                    +cursor-pointer()
-                    > img
-                        width: $pixel * 8
-                        height: $pixel * 8
+                > .buttons
+                    +flex(row, n, center, center)
+                    width: 100%
+
+                    > .button
+                        +cursor-pointer()
+
+                        &.small
+                            overflow: hidden
+                            width: $pixel * 3.5
+                            height: $pixel * 3.5
+                            +flex(row, n, center, center)
+
+                            > img
+                                width: $pixel * 2.5
+                                height: $pixel * 2.5
+
+                        &.big
+                            overflow: hidden
+                            width: $pixel * 6
+                            height: $pixel * 7
+                            margin-left: $pixel * -.5
+                            margin-right: $pixel * -.5
+                            +flex(row, n, center, center)
+
+                            > img
+                                width: $pixel * 6
+                                height: $pixel * 6
 
                 > .duration
                     > .currentTime

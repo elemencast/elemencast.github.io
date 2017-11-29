@@ -24,11 +24,6 @@ export default {
     ],
     icones: [
         {
-            href: '/static/audio/ep1-atomic-design.mp3',
-            imagem: '/static/img/download.svg',
-            nome: 'download'
-        },
-        {
             href: 'https://www.github.com/luiguild',
             imagem: '/static/img/github.svg',
             nome: 'github'

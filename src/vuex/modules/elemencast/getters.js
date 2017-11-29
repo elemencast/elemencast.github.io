@@ -19,7 +19,7 @@ const getters = {
     getEpisodios: state => {
         return state.episodios
     },
-    getEpisodio: (state, getters) => (id) => {
+    getEpisodio: (state, getters) => id => {
         return getters.getEpisodios.reduce((acc, elm, indx) => {
             if (elm.id === id) {
                 acc = elm
