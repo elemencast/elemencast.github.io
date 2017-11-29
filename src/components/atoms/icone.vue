@@ -1,15 +1,15 @@
 <style lang="sass">
     @import ../../sass/imports/_extend
 
-    .icones
+    .icone
         &__item
             +flex(column, n, flex-start, center)
-            margin-bottom: $pixel * 2
+            margin-bottom: $pixel
             margin-left: $pixel * -1
             margin-right: $pixel * -1
-            max-width: $pixel * 8.75
-            width: $pixel * 8.75
-            min-width: $pixel * 8.75
+            max-width: $pixel * 9.75
+            width: $pixel * 9.75
+            min-width: $pixel * 9.75
 
             &:first-of-type
                 margin-left: 0
@@ -17,9 +17,9 @@
             &:last-of-type
                 margin-right: 0
 
-            &-tip
+            &--tip
                 border-radius: $pixel
-                margin-top: $pixel * -2.5
+                margin-top: $pixel * -3.5
                 padding: $pixel
                 padding-right: $pixel * 2
                 padding-left: $pixel * 2
@@ -29,17 +29,18 @@
 
 
 <template lang="pug">
-    .icones__item
-        .icones__item-tip.m__b--s {{nome}}
-        a(v-if="nome == 'download'",
-            :href='href',
-            target='_blank',
-            :download='fileName')
-            img(:src='image')
-        a(v-else,
-            :href='href',
-            target='_blank')
-            img(:src='image')
+    .icone
+        .icone__item
+            .icone__item--tip.m__b--s {{nome}}
+            a(v-if="nome == 'download'",
+                :href='href',
+                target='_blank',
+                :download='fileName')
+                img(:src='image')
+            a(v-else,
+                :href='href',
+                target='_blank')
+                img(:src='image')
 </template>
 
 <script>

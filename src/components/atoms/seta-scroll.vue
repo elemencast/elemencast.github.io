@@ -3,15 +3,15 @@
 
     .seta
         position: fixed
-        bottom: $pixel * 7
+        bottom: $pixel * 5
         opacity: 0
         height: 0
         width: 0
-        border-left-width: $pixel * 1.5
+        border-left-width: $pixel * 1
         border-left-style: solid
         border-left-color: transparent
 
-        border-right-width: $pixel * 1.5
+        border-right-width: $pixel * 1
         border-right-style: solid
         border-right-color: transparent
 
@@ -22,16 +22,22 @@
 
     @keyframes down
         0%
-            bottom: $pixel * 7
-            opacity: 1
-        49%
-            bottom: $pixel * 3
+            bottom: $pixel * 5
             opacity: 0
-        50%
-            bottom: $pixel * 7
+        20%
+            bottom: $pixel * 5
+            opacity: 1
+        59%
+            bottom: $pixel * 2
+            opacity: 0
+        60%
+            bottom: $pixel * 5
+            opacity: 0
+        61%
+            bottom: $pixel * 5
             opacity: 1
         100%
-            bottom: $pixel * 3
+            bottom: $pixel * 2
             opacity: 0
 </style>
 

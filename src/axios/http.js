@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const http = axios.create({
     baseURL: endpoints('development'),
-    timeout: 100000
+    timeout: 1000000
 })
 
 export default http

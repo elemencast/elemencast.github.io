@@ -10,7 +10,6 @@
         border-style: solid
         border-width: $pixel * 2.6
         border-radius: $pixel * 4
-        padding: $pixel * 2
         z-index: 5
         +border-box
         +transition(.4s)
@@ -19,53 +18,191 @@
         &--open
             width: 700px
 
+        &--close
+            +transition-delay(.4s)
+            width: 0
+
+        &--open,
+        &--close
+            .square
+                margin-top: 0
+                padding-top: $pixel
+                width: calc(100% + #{$pixel * 3})
+                height: 100%
+
             .content
+                +flex(row, n, space-between, center)
                 opacity: 1
+                width: 100%
+                height: 100%
                 +transition(.5s)
 
                 &--show
                     +animation(showContent, 1000ms, ease-in-out, 0ms, 1, normal, running)
 
+                &--hide
+                    opacity: 0
+                    +animation(hideContent, 500ms, ease-in-out, 0ms, 1, normal, running)
 
-            @keyframes showContent
-                0%
-                    opacity: 0
-                49%
-                    opacity: 0
-                50%
-                    opacity: 0
-                100%
-                    opacity: 1
+                > .left,
+                > .right
+                    width: $pixel * 32
+                    height: $pixel * 26
+                    overflow: hidden
 
-        &--close
-            width: 0
+                    > .seta
+                        margin-left: $pixel * 14
+
+                > .left
+                    h2
+                        font-weight: 500
+                        padding-bottom: $pixel * 2
+                        border-bottom-style: solid
+                        border-bottom-width: 1px
+                        border-bottom-color: $black
+
+                    pre
+                        white-space: pre-wrap
+
+                        &::after
+                            content: '.'
+                            color: $white
+                            padding-bottom: $pixel * 2
+
+                > .right
+                    .pessoa
+                        +flex(row, n, flex-start, center)
+
+                        > .imagem
+                            height: $pixel * 7
+                            min-height: $pixel * 7
+                            max-height: $pixel * 7
+                            width: $pixel * 7
+                            min-width: $pixel * 7
+                            max-width: $pixel * 7
+                            overflow: hidden
+                            +flex(row, n, center, center)
+                            border-radius: 50%
+                            border-style: solid
+                            border-width: $pixel / 2
+                            border-color: $black
+
+                            > img
+                                max-height: $pixel * 9
+                                max-width: $pixel * 9
+
+                        > .dados
+                            width: 100%
+                            +flex(column, n, center, flex-start)
+
+                            > .links
+                                width: 100%
+                                +flex(row, n, flex-start, center)
+
+                                > a
+                                    color: $black
+                                    font-size: $pixel * 2
+
+                    pre
+                        white-space: pre-wrap
+
+                        &::after
+                            content: '.'
+                            color: $white
+                            padding-bottom: $pixel * 2
+
+        @keyframes showContent
+            0%
+                opacity: 0
+            49%
+                opacity: 0
+            50%
+                opacity: 0
+            100%
+                opacity: 1
+
+        @keyframes hideContent
+            0%
+                opacity: 1
+            49%
+                opacity: 1
+            50%
+                opacity: 1
+            100%
+                opacity: 0
 </style>
 
 <template lang="pug">
     #informacoes(:class='infoStatus')
-        .square
-            .content(:class='showContent')
-                .left
-                .right
+        .content(:class='showContent')
+            .left
+                seta-scroll(v-if='getInfoPanel')
+                .square
+                    h2.m__b--m {{episodio.titulo.completo}}
+                    pre {{episodio.texto}}
+            .right
+                seta-scroll(v-if='getInfoPanel')
+                .square
+                    h4.m__b--s Participantes desta edição
+                    .participante(v-for='(pessoa, index) in episodio.participantes',
+                        :key='index')
+                        .pessoa.m__b--s
+                            .imagem.m__r--s
+                                img(:src='pessoa.foto')
+                            .dados
+                                h2 {{pessoa.nome}}
+
+                                .links
+                                    a.m__r--s(:href="'mailto:' + pessoa.email") email
+                                    a.m__r--s(:href="pessoa.github") github
+                                    a.m__r--s(:href="pessoa.twitter") twitter
+
+                        pre {{pessoa.minibio}}
 </template>
 
 <script>
-    import { mapGetters, mapActions } from 'vuex'
+    import { mapGetters } from 'vuex'
+    import { setaScroll } from '@/components/atoms'
 
     export default {
         props: [],
-        data: () => ({}),
+        data: () => ({
+            episodio: {
+                titulo: {
+                    resumido: '',
+                    completo: ''
+                },
+                subtitulo: '',
+                participantes: [
+                    {
+                        foto: '',
+                        nome: '',
+                        email: '',
+                        github: '',
+                        twitter: '',
+                        minibio: ''
+                    }
+                ],
+                audio: '',
+                texto: ''
+            }
+        }),
         created: function () {},
         mounted: function () {},
         updated: function () {},
         destroyed: function () {},
-        components: {},
+        components: {
+            setaScroll
+        },
         computed: {
             ...mapGetters([
-                'getInfoPanel'
+                'getInfoPanel',
+                'getEpisodio',
+                'getEpisodios'
             ]),
             infoStatus () {
                 if (this.getInfoPanel) {
+                    this.getEpisodes()
                     return 'box--open'
                 }
 
@@ -75,12 +212,25 @@
                 if (this.getInfoPanel) {
                     return 'content--show'
                 }
+
+                return 'content--hide'
             }
         },
         methods: {
-            ...mapActions([])
+            getEpisodes () {
+                if (this.getEpisodios.length > 0) {
+                    this.episodio = this.getEpisodio(1)
+
+                    return this.episodio
+                }
+            }
         },
-        filters: {},
-        watch: {}
+        watcher: {
+            getEpisodios: function (changes) {
+                if (changes.length > 0) {
+                    this.getEpisodes()
+                }
+            }
+        }
     }
 </script>

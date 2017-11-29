@@ -29,21 +29,26 @@
                         margin-left: $pixel * 5.5
 
         > nav
-            > .item
-                > a
-                    color: $black
+            > .items
+                > .item
+                    > a
+                        color: $black
 
         .icones
-            &__item
-                &:hover
-                    .icones__item-tip
-                        opacity: 1
+            &:hover
+                z-index: 9
 
-                &-tip
-                    opacity: 0
-                    background-color: $black
-                    color: $white
-                    +transition(.2s)
+            .icone
+                &__item
+                    &:hover
+                        .icone__item--tip
+                            opacity: 1
+
+                    &--tip
+                        opacity: 0
+                        background-color: $black
+                        color: $white
+                        +transition(.2s)
 
         .footer
             &-msg
