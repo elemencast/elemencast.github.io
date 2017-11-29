@@ -127,27 +127,11 @@
 </template>
 
 <script>
-    import { mapState, mapGetters, mapActions } from 'vuex'
     import { elemencast } from '@/components/templates'
 
     export default {
-        props: [],
-        data: () => ({}),
-        created: function () {},
-        mounted: function () {},
-        updated: function () {},
-        destroyed: function () {},
         components: {
             elemencast
-        },
-        computed: {
-            ...mapGetters([]),
-            ...mapState({})
-        },
-        methods: {
-            ...mapActions([])
-        },
-        filters: {},
-        watch: {}
+        }
     }
 </script>

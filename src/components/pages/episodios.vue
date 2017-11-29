@@ -87,11 +87,11 @@
                 > .duration
                     > .currentTime
                         font-weight: 300
-                        font-size: $pixel * 3
+                        font-size: $pixel * 3.5
 
             > canvas
                 position: absolute
-                bottom: 0
+                bottom: $pixel * -1 / 2
                 width: $pixel * 13.81 + 10
                 height: $pixel * 13
 

@@ -7,9 +7,9 @@
             .button.big(@click='toggleAudio()')
                 img(:src='buttonIcon')
 
-            a.button.small(href='/static/audio/ep1-atomic-design.mp3',
+            a.button.small(:href='src',
                 target='_blank',
-                download='ep1-atomic-design.mp3')
+                :download='downloadFile')
                 img(src='/static/img/download.svg')
 
         .duration
@@ -20,11 +20,11 @@
     import { mapGetters, mapActions } from 'vuex'
 
     export default {
+        props: ['src'],
         mounted: function () {
             this.setAudioStatus('stop')
             this.setCurrentTime('00:00')
         },
-        components: {},
         computed: {
             ...mapGetters([
                 'getCurrentTime',
@@ -37,6 +37,9 @@
                             this.getAudioStatus === 'stop') {
                     return '/static/img/play.svg'
                 }
+            },
+            downloadFile () {
+                return this.src.split('/')[3]
             }
         },
         methods: {
@@ -46,9 +49,9 @@
             ]),
             toggleAudio () {
                 if (this.getAudioStatus === 'play') {
-                    this.setAudioStatus('pause')
+                    return this.setAudioStatus('pause')
                 } else {
-                    this.setAudioStatus('play')
+                    return this.setAudioStatus('play')
                 }
             }
         }

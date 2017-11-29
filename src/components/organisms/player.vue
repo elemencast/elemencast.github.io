@@ -1,6 +1,6 @@
 <template lang="pug">
     .player
-        controles
+        controles(:src='audio')
         espectro(width='111px', height='305px')
         audio-player(:src='audio')
 </template>
@@ -17,18 +17,16 @@
     export default {
         props: ['audio'],
         mounted: function () {
-            audioVisualizer(this.getPlayer, this.getCanvas)
+            return audioVisualizer(this.getPlayer, this.getCanvas)
         },
         components: {
             controles,
             espectro,
             audioPlayer
         },
-        computed: {
-            ...mapGetters([
-                'getPlayer',
-                'getCanvas'
-            ])
-        }
+        computed: mapGetters([
+            'getPlayer',
+            'getCanvas'
+        ])
     }
 </script>

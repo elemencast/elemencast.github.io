@@ -10,12 +10,11 @@
         mounted: function () {
             this.setPlayer(this.$refs.audio)
 
-            this.$refs.audio.addEventListener('timeupdate', event => {
-                this.setCurrentTime(this.processingTime(event))
-            }, false)
+            this.$refs.audio.addEventListener('timeupdate', event =>
+                this.setCurrentTime(this.processingTime(event)), false)
         },
         destroyed: function () {
-            this.setPlayer(null)
+            return this.setPlayer(null)
         },
         methods: {
             ...mapActions([

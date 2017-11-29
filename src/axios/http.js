@@ -2,7 +2,7 @@ import endpoints from './endpoints'
 import axios from 'axios'
 
 const http = axios.create({
-    baseURL: endpoints('production'),
+    baseURL: endpoints('development'),
     timeout: 100000
 })
 

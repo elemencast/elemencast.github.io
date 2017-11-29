@@ -8,10 +8,8 @@
     export default {
         props: ['width', 'height'],
         mounted: function () {
-            this.setCanvas(this.$refs.canvas)
+            return this.setCanvas(this.$refs.canvas)
         },
-        methods: {
-            ...mapActions(['setCanvas'])
-        }
+        methods: mapActions(['setCanvas'])
     }
 </script>

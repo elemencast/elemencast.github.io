@@ -98,7 +98,13 @@ export default {
             area: 'gerenciador de requisições ajax',
             href: 'https://github.com/axios/axios',
             titulo: ['AXIOS'],
-            subtitulo: ' Promise based HTTP client for the browser and node.js'
+            subtitulo: 'Promise based HTTP client for the browser and node.js'
+        },
+        {
+            area: 'webplayer',
+            href: 'https://github.com/wayou',
+            titulo: ['WAYOU LIU'],
+            subtitulo: 'HTML5 Audio Visualizer'
         },
         {
             area: 'template engine',

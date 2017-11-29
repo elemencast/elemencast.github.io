@@ -35,7 +35,7 @@
             player
         },
         mounted: function () {
-            this.downloadEpisodios()
+            return this.downloadEpisodios()
         },
         computed: {
             ...mapGetters([
@@ -57,6 +57,8 @@
         watch: {
             getEpisodios: function (change) {
                 this.episodio = this.getEpisodio(1)
+
+                return this.episodio
             }
         }
     }
