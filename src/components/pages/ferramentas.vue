@@ -22,6 +22,15 @@
                     border-top-width: 1px
                     border-top-color: $black
 
+                > .link
+                    .titulo
+                        font-size: $pixel * 2.5
+
+                    .subtitulo
+                        font-size: $pixel * 2
+
+                    .descricao
+
                 > h4:first-of-type
                     font-weight: 700
 

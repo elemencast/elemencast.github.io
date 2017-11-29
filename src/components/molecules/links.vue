@@ -40,7 +40,7 @@
                 .pipe(v-if='index < items.length - 1')
 
         a.newsletter.m__t--s(href='https://tinyletter.com/elemencast',
-            target='_blank') me inscrever na newletter
+            target='_blank') me inscrever na newsletter
 </template>
 
 <script>

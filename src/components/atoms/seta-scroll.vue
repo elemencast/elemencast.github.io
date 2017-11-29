@@ -18,7 +18,7 @@
         border-top-width: $pixel * 2
         border-top-style: solid
         +transition(.2s)
-        +animation(down, 1600ms, ease-in-out, 1500ms, 2, normal, running)
+        +animation(down, 1600ms, ease-in-out, 500ms, 2, normal, running)
 
     @keyframes down
         0%

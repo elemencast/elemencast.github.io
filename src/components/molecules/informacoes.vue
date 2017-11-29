@@ -30,6 +30,18 @@
                 width: calc(100% + #{$pixel * 3})
                 height: 100%
 
+                > .quero-participar
+                    display: inline-block
+                    padding: $pixel / 2
+                    padding-left: $pixel * 4
+                    padding-right: $pixel * 4
+                    margin-bottom: $pixel * 2
+                    border-radius: $pixel * 2
+                    background-color: $black
+                    color: $white
+                    font-weight: 100
+                    font-size: $pixel * 2.5
+
             .content
                 +flex(row, n, space-between, center)
                 opacity: 1
@@ -153,11 +165,14 @@
                                 h2 {{pessoa.nome}}
 
                                 .links
-                                    a.m__r--s(:href="'mailto:' + pessoa.email") email
-                                    a.m__r--s(:href="pessoa.github") github
-                                    a.m__r--s(:href="pessoa.twitter") twitter
+                                    a.m__r--s(:href="'mailto:' + pessoa.email", target='_blank') email
+                                    a.m__r--s(:href='pessoa.github', target='_blank') github
+                                    a.m__r--s(:href='pessoa.twitter', target='_blank') twitter
 
                         pre {{pessoa.minibio}}
+
+                    a.quero-participar.m__t--s(href='https://github.com/elemencast/episodios',
+                        target='_blank') quero participar
 </template>
 
 <script>
