@@ -2,13 +2,13 @@
     @import ../../sass/imports/_extend
 
     #sobre
-        > p
+        p
             text-align: left
 
-        &:last-child::after
-            content: '.'
-            color: $white
-            padding-bottom: $pixel * 2
+            &:last-child::after
+                content: '.'
+                color: $white
+                padding-bottom: $pixel * 6
 </style>
 
 <template lang="pug">

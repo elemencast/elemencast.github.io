@@ -1,7 +1,7 @@
 <template lang="pug">
     .item
-        h2.m__t--m(v-if='tipo') {{tipo}}
-        h4.m__t--m.m__b--xs(v-if='area') {{area}}
+        h2.m__t--s(v-if='tipo') {{tipo}}
+        h4.m__t--s.m__b--xs.area(v-if='area') {{area}}
         a(:href='href')
             h3.m__t--s(v-if='titulo.length > 1',
                 v-for='(item, index) in titulo',

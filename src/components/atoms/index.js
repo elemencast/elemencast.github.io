@@ -6,6 +6,7 @@ import audioPlayer from './audio-player'
 import ferramenta from './ferramenta'
 import loading from './loading'
 import roundButton from './round-button'
+import setaScroll from './seta-scroll'
 
 export {
     icone,
@@ -15,5 +16,6 @@ export {
     audioPlayer,
     ferramenta,
     loading,
-    roundButton
+    roundButton,
+    setaScroll
 }

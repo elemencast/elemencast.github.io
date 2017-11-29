@@ -30,7 +30,11 @@
                     &__transparent
                         background-color: $transparent
 
-                    > .square
+                    .seta
+                        border-top-color: $black
+                        margin-left: $pixel * 5.5
+
+                    .square
                         width: $pixel * 13.81 + 24
                         height: $pixel * 38.3
                         padding: $pixel * 1.3
