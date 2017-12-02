@@ -1,7 +1,10 @@
 build: node_modules
 	yarn build
 
-deploy: build
+rss: build
+    node ./build/build_rss.js
+
+deploy: rss
 	./deploy.sh
 
 clean:
