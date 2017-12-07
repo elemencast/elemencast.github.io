@@ -212,12 +212,12 @@
         computed: {
             ...mapGetters([
                 'getInfoPanel',
-                'getEpisodio',
-                'getEpisodios'
+                'getCurrentEpisode',
+                'getEpisodes'
             ]),
             infoStatus () {
                 if (this.getInfoPanel) {
-                    this.getEpisodes()
+                    this.setEpisodes(this.$route.params.id)
                     return 'box--open'
                 }
 
@@ -232,18 +232,22 @@
             }
         },
         methods: {
-            getEpisodes () {
-                if (this.getEpisodios.length > 0) {
-                    this.episodio = this.getEpisodio(1)
+            setEpisodes () {
+                if (this.getEpisodes.length > 0) {
+                    const episodio = this.getCurrentEpisode
+
+                    if (episodio.titulo.completo !== undefined) {
+                        this.episodio = episodio
+                    }
 
                     return this.episodio
                 }
             }
         },
         watcher: {
-            getEpisodios: function (changes) {
-                if (changes.length > 0) {
-                    this.getEpisodes()
+            getInfoPanel: function (changes) {
+                if (changes) {
+                    this.setEpisodes()
                 }
             }
         }

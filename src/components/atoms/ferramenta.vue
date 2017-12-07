@@ -1,27 +1,27 @@
 <template lang="pug">
     .item
-        h2.m__t--s(v-if='tipo') {{tipo}}
+        h2.m__t--s(v-if='type') {{type}}
         h4.m__t--s.m__b--xs.area(v-if='area') {{area}}
         a.link(:href='href')
-            h3.titulo.m__t--s(v-if='titulo.length > 1',
-                v-for='(item, index) in titulo',
+            h3.title.m__t--s(v-if='title.length > 1',
+                v-for='(item, index) in title',
                 :key='index') {{item}}
-            h3.titulo.m__t--s(v-else) {{titulo[0]}}
-            h4.subtitulo.m__b--m(v-if='subtitulo') {{subtitulo}}
-            h5.descricao(v-if='descricao') {{descricao}}
-            img(v-if='imagem', :src='imagem', width='70px')
+            h3.title.m__t--s(v-else) {{title[0]}}
+            h4.subtitle.m__b--m(v-if='subtitle') {{subtitle}}
+            h5.description(v-if='description') {{description}}
+            img(v-if='image', :src='image', width='70px')
 </template>
 
 <script>
     export default {
         props: [
-            'tipo',
+            'type',
             'area',
             'href',
-            'titulo',
-            'subtitulo',
-            'descricao',
-            'imagem'
+            'title',
+            'subtitle',
+            'description',
+            'image'
         ]
     }
 </script>

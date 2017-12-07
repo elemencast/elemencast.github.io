@@ -2,15 +2,15 @@
     #ferramentas
         seta-scroll
         .square
-            .content(v-for='(item, index) in getFerramentas',
+            .content(v-for='(item, index) in getTools',
                 :key='index')
-                ferramenta(:tipo='item.tipo',
+                ferramenta(:type='item.type',
                     :area='item.area',
                     :href='item.href',
-                    :titulo='item.titulo',
-                    :subtitulo='item.subtitulo',
-                    :descricao='item.descricao',
-                    :imagem='item.imagem')
+                    :title='item.title',
+                    :subtitle='item.subtitle',
+                    :description='item.description',
+                    :image='item.image')
 </template>
 
 <script>
@@ -27,7 +27,7 @@
         },
         computed: {
             ...mapGetters([
-                'getFerramentas'
+                'getTools'
             ])
         }
     }

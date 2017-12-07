@@ -6,6 +6,6 @@ export const getAll = () =>
         .then(data => data.episodios.map((elm, indx) => {
             return {
                 ...elm,
-                id: indx + 1
+                id: (indx + 1).toString()
             }
         }))

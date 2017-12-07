@@ -2,18 +2,12 @@
 
 const getters = {
     getLinks: state => state.links,
-    getFerramentas: state => state.ferramentas,
-    getIcones: state => state.icones,
+    getTools: state => state.tools,
+    getIcons: state => state.icons,
     getCurrentTime: state => state.currentTime,
     getAudioStatus: state => state.audioStatus,
-    getEpisodios: state => state.episodios,
-    getEpisodio: (state, getters) => id =>
-        getters.getEpisodios.reduce((acc, elm, indx) => {
-            if (elm.id === id) {
-                acc = elm
-            }
-            return acc
-        }, {}),
+    getEpisodes: state => state.allEpisodes,
+    getCurrentEpisode: state => state.currentEpisode,
     getPlayer: state => state.player,
     getCanvas: state => state.canvas,
     getInfoPanel: state => state.informationPopup

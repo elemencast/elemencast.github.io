@@ -1,8 +1,8 @@
 <template lang="pug">
     .header
-        h4.ep-id # {{episodio}}
-        h1.m__b--xs {{titulo}}
-        h2 {{subtitulo}}
+        h4.ep-id(v-if='episodio') # {{episodio}}
+        h1.m__b--xs(v-if='titulo') {{titulo}}
+        h2(v-if='subtitulo') {{subtitulo}}
 </template>
 
 <script>

@@ -31,8 +31,8 @@
 <template lang="pug">
     .icone
         .icone__item
-            .icone__item--tip.m__b--s {{nome}}
-            a(v-if="nome == 'download'",
+            .icone__item--tip.m__b--s {{name}}
+            a(v-if="name == 'download'",
                 :href='href',
                 target='_blank',
                 :download='fileName')
@@ -45,7 +45,7 @@
 
 <script>
     export default {
-        props: ['href', 'image', 'nome'],
+        props: ['href', 'image', 'name'],
         computed: {
             fileName () {
                 let fileName = this.href.split('/')

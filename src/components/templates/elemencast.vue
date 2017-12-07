@@ -11,7 +11,7 @@
     #elemencast
         conteiner
         links(:items='getLinks')
-        icones(:items='getIcones')
+        icones(:items='getIcons')
         main-footer
 </template>
 
@@ -34,7 +34,7 @@
         computed: {
             ...mapGetters([
                 'getLinks',
-                'getIcones'
+                'getIcons'
             ])
         }
     }

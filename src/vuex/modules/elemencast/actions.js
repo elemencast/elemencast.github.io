@@ -19,9 +19,19 @@ const actions = {
     setInfoPanel: ({ commit }, value) =>
         commit('displayInformation', value),
 
-    downloadEpisodes: ({ commit }) =>
-        axios.episodios.getAll()
-            .then(data => commit('episodios', data))
+    setEpisodes: ({ dispatch, commit }, id) => {
+        return axios.episodios.getAll()
+            .then(data => {
+                commit('allEpisodes', data)
+
+                if (id) {
+                    dispatch('setCurrentEpisode', id)
+                }
+            })
+    },
+
+    setCurrentEpisode: ({ commit }, id) =>
+        commit('currentEpisode', id)
 }
 
 export default actions

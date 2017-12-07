@@ -36,7 +36,7 @@
     nav
         .items.m__t--s
             .item(v-for='(menu, index) in items', :key='index')
-                item-link(:href='menu.href', :titulo='menu.titulo')
+                item-link(:href='menu.href', :title='menu.title')
                 .pipe(v-if='index < items.length - 1')
 
         a.newsletter.m__t--s(href='https://tinyletter.com/elemencast',

@@ -27,7 +27,17 @@ const mutations = {
         state.currentTime = currentTime
         return state
     },
-    episodios: (state, data) => Vue.set(state, 'episodios', data)
+    allEpisodes: (state, data) => Vue.set(state, 'allEpisodes', data),
+    currentEpisode: (state, id) => {
+        const episode = state.allEpisodes.reduce((acc, elm, indx) => {
+            if (elm.id === id) {
+                acc = elm
+            }
+            return acc
+        }, {})
+
+        return Vue.set(state, 'currentEpisode', episode)
+    }
 }
 
 export default mutations

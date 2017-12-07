@@ -1,13 +1,8 @@
 // import Vue from 'vue'
 
 export default {
-    episodios: [
-        {
-            titulo: '',
-            subtitulo: '',
-            audio: ''
-        }
-    ],
+    currentEpisode: {},
+    allEpisodes: [],
     informationPopup: false,
     player: null,
     canvas: null,
@@ -16,115 +11,115 @@ export default {
     links: [
         {
             href: '/episodios',
-            titulo: 'episódios'
+            title: 'episódios'
         },
         {
             href: '/sobre',
-            titulo: 'sobre'
+            title: 'sobre'
         }
     ],
-    icones: [
+    icons: [
         {
             href: 'https://www.github.com/luiguild',
-            imagem: '/static/img/github.svg',
-            nome: 'github'
+            image: '/static/img/github.svg',
+            name: 'github'
         },
         {
             href: 'https://www.twitter.com/luiguild',
-            imagem: '/static/img/twitter.svg',
-            nome: 'twitter'
+            image: '/static/img/twitter.svg',
+            name: 'twitter'
         },
         {
             href: 'https://telegram.me/luiguild',
-            imagem: '/static/img/telegram.svg',
-            nome: 'telegram'
+            image: '/static/img/telegram.svg',
+            name: 'telegram'
         },
         {
             href: 'mailto:elemencast@s1x.com.br',
-            imagem: '/static/img/email.svg',
-            nome: 'email'
+            image: '/static/img/email.svg',
+            name: 'email'
         },
         {
             href: 'https://www.instagram.com/luiguild',
-            imagem: '/static/img/instagram.svg',
-            nome: 'instagram'
+            image: '/static/img/instagram.svg',
+            name: 'instagram'
         },
         {
             href: 'https://www.facebook.com/luiguild',
-            imagem: '/static/img/facebook.svg',
-            nome: 'facebook'
+            image: '/static/img/facebook.svg',
+            name: 'facebook'
         }
     ],
-    ferramentas: [
+    tools: [
         {
-            tipo: 'hardware',
+            type: 'hardware',
             area: 'microfone',
             href: 'https://zoom-na.com/products/field-video-recording/video-recording/zoom-q4-handy-video-recorder',
-            titulo: ['ZOOM Q4'],
-            subtitulo: 'The Camera for Creators'
+            title: ['ZOOM Q4'],
+            subtitle: 'The Camera for Creators'
         },
         {
-            tipo: 'softwares',
+            type: 'softwares',
             area: 'edição de áudio',
             href: 'http://www.audacityteam.org/',
-            titulo: ['AUDACITY'],
-            subtitulo: 'Audacity® is free, open source, cross-platform audio software for multi-track recording and editing'
+            title: ['AUDACITY'],
+            subtitle: 'Audacity® is free, open source, cross-platform audio software for multi-track recording and editing'
         },
         {
             area: 'design',
             href: 'https://gravit.io/',
-            titulo: ['GRAVIT DESIGNER'],
-            subtitulo: 'A cross-platform design tool for the 21st century'
+            title: ['GRAVIT DESIGNER'],
+            subtitle: 'A cross-platform design tool for the 21st century'
         },
         {
             area: 'edição de texto',
             href: 'https://www.libreoffice.org/',
-            titulo: ['LIBREOFFICE'],
-            subtitulo: 'Its clean interface and feature-rich tools help you unleash your creativity and enhance your productivity'
+            title: ['LIBREOFFICE'],
+            subtitle: 'Its clean interface and feature-rich tools help you unleash your creativity and enhance your productivity'
         },
         {
-            tipo: 'webdev',
+            type: 'webdev',
             area: 'framework Javascript',
             href: 'http://vuejs.org/',
-            titulo: ['VUEJS'],
-            subtitulo: 'The progressive JavaScript framework'
+            title: ['VUEJS'],
+            subtitle: 'The progressive JavaScript framework'
         },
         {
             area: 'gerência de estados',
             href: 'https://vuex.vuejs.org/',
-            titulo: ['VUEX'],
-            subtitulo: 'A state management pattern + library for Vue.js applications'
+            title: ['VUEX'],
+            subtitle: 'A state management pattern + library for Vue.js applications'
         },
         {
             area: 'gerenciador de requisições ajax',
             href: 'https://github.com/axios/axios',
-            titulo: ['AXIOS'],
-            subtitulo: 'Promise based HTTP client for the browser and node.js'
+            title: ['AXIOS'],
+            subtitle: 'Promise based HTTP client for the browser and node.js'
         },
         {
             area: 'webplayer',
             href: 'https://github.com/wayou',
-            titulo: ['WAYOU LIU'],
-            subtitulo: 'HTML5 Audio Visualizer'
+            title: ['WAYOU LIU'],
+            subtitle: 'HTML5 Audio Visualizer'
         },
         {
             area: 'template engine',
             href: 'http://pugjs.org/',
-            titulo: ['PUGJS'],
-            subtitulo: 'Robust, elegant, feature rich template engine for Node.js'
+            title: ['PUGJS'],
+            subtitle: 'Robust, elegant, feature rich template engine for Node.js'
         },
         {
             area: 'pre-processor css',
             href: 'http://sass-lang.com/',
-            titulo: ['SASS'],
-            subtitulo: 'CSS with superpowers'
+            title: ['SASS'],
+            subtitle: 'CSS with superpowers'
         },
         {
-            tipo: 'trilha sonora',
+            type: 'trilha sonora',
             href: 'http://dig.ccmixter.org/',
-            titulo: ['DIG CC MIXTER', 'KARA SQUARE'],
-            subtitulo: 'Transmutation',
-            imagem: '/static/img/cc.png'
+            title: ['DIG CC MIXTER', 'KARA SQUARE'],
+            subtitle: 'Transmutation',
+            image: '/static/img/cc.png'
         }
     ]
 }

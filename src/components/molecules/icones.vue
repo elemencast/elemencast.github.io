@@ -9,9 +9,9 @@
     .icones
         icone(v-for='(icone, index) in items',
             :key='index',
-            :nome='icone.nome',
+            :name='icone.name',
             :href='icone.href',
-            :image='icone.imagem')
+            :image='icone.image')
 </template>
 
 <script>

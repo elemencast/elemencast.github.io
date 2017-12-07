@@ -7,11 +7,11 @@
 </style>
 
 <template lang="pug">
-    router-link(:to='href') {{titulo}}
+    router-link(:to='href') {{title}}
 </template>
 
 <script>
     export default {
-        props: ['href', 'titulo']
+        props: ['href', 'title']
     }
 </script>

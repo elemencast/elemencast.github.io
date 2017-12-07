@@ -1,18 +1,52 @@
+<style scoped lang="sass">
+    @import ../../sass/imports/_extend
+
+    .cards
+        margin-top: $pixel * -4
+        width: $pixel * 16.7
+        align-self: flex-start
+</style>
+
 <template lang="pug">
     #episodios
-        loading(:downloading='downloading')
+        seta-scroll(
+            v-if='getEpisodes.length > 3'
+        )
+
+        loading(
+            v-if='$route.params.id',
+            :downloading='downloading'
+        )
+
+        .cards.square(v-if='!$route.params.id')
+            episodio-card(
+                v-for='(episode, index) in getEpisodes',
+                :key='index',
+                :id='episode.id',
+                :title='episode.titulo.resumido',
+                :subtitle='episode.subtitulo'
+            )
+
         episodio-header(
+            v-if='$route.params.id'
             :episodio='episodio.id',
             :titulo='episodio.titulo.resumido',
-            :subtitulo='episodio.subtitulo')
-        player(:audio='episodio.audio')
+            :subtitulo='episodio.subtitulo'
+        )
+
+        player(
+            v-if='$route.params.id',
+            :audio='episodio.audio'
+        )
 </template>
 
 <script>
     import { mapGetters, mapActions } from 'vuex'
     import {
         episodioHeader,
-        loading
+        episodioCard,
+        loading,
+        setaScroll
     } from '@/components/atoms'
     import { player } from '@/components/organisms'
 
@@ -31,19 +65,21 @@
         }),
         components: {
             episodioHeader,
+            episodioCard,
             loading,
-            player
+            player,
+            setaScroll
         },
-        mounted: function () {
-            return this.downloadEpisodes()
+        created () {
+            this.setEpisodes(this.$route.params.id)
         },
         computed: {
             ...mapGetters([
-                'getEpisodio',
-                'getEpisodios'
+                'getCurrentEpisode',
+                'getEpisodes'
             ]),
             downloading () {
-                if (this.episodio.audio) {
+                if (this.episodio.audio !== '') {
                     return false
                 }
                 return true
@@ -51,14 +87,41 @@
         },
         methods: {
             ...mapActions([
-                'downloadEpisodes'
-            ])
+                'setEpisodes',
+                'setCurrentEpisode'
+            ]),
+            setEpisode (id) {
+                if (id === 'ultimo') {
+                    this.$router.push(`/episodios/${this.getEpisodes.length}`)
+                }
+
+                this.setCurrentEpisode(id)
+                this.episodio = this.getCurrentEpisode
+
+                if (this.episodio.titulo === undefined) {
+                    this.episodio = {
+                        id: '9999',
+                        titulo: {
+                            resumido: 'Episódio fail :(',
+                            completo: ''
+                        },
+                        subtitulo: 'Tente novamente',
+                        participantes: [],
+                        audio: '',
+                        texto: ''
+                    }
+                }
+                return this.episodio
+            }
         },
         watch: {
-            getEpisodios: function (change) {
-                this.episodio = this.getEpisodio(1)
-
-                return this.episodio
+            '$route.params.id': function (change) {
+                return this.setEpisode(change)
+            },
+            getEpisodes: function (change) {
+                if (change.length > 0) {
+                    this.setEpisode(this.$route.params.id)
+                }
             }
         }
     }

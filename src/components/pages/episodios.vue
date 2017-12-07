@@ -6,6 +6,10 @@
         height: 100%
         width: 100%
 
+        > .cards
+            > *
+                color: $black
+
         > .loading
             position: absolute
             background-color: $black

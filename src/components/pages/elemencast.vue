@@ -28,6 +28,10 @@
                         border-top-color: $black
                         margin-left: $pixel * 5.5
 
+                    > #episodios
+                        > .seta
+                            margin-left: 0
+
         > nav
             > .items
                 > .item

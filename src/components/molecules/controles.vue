@@ -1,19 +1,33 @@
+<style scoped lang="sass">
+    .disabled
+        opacity: .5
+</style>
+
 <template lang="pug">
     .control
         .buttons
-            .button.small(@click='toggleInfo()')
+            .button.small(
+                :class='noEpisode',
+                @click='toggleInfo()'
+            )
                 img(:src='infoIcon')
 
-            .button.big(@click='toggleAudio()')
+            .button.big(
+                :class='noEpisode',
+                @click='toggleAudio()'
+            )
                 img(:src='buttonIcon')
 
-            a.button.small(:href='src',
+            a.button.small(
+                :class='noEpisode',
+                :href='src',
                 target='_blank',
-                :download='downloadFile')
+                :download='downloadFile'
+            )
                 img(src='/static/img/download.svg')
 
         .duration
-            .currentTime {{getCurrentTime}}
+            .currentTime(:class='noEpisode') {{getCurrentTime}}
 </template>
 
 <script>
@@ -29,7 +43,8 @@
             ...mapGetters([
                 'getCurrentTime',
                 'getAudioStatus',
-                'getInfoPanel'
+                'getInfoPanel',
+                'getCurrentEpisode'
             ]),
             buttonIcon () {
                 if (this.getAudioStatus === 'play') {
@@ -47,6 +62,15 @@
             },
             downloadFile () {
                 return this.src.split('/')[3]
+            },
+            noEpisode () {
+                if (!this.getCurrentEpisode.audio ||
+                    this.getCurrentEpisode.audio === undefined ||
+                    this.getCurrentEpisode.audio === '') {
+                    return 'disabled'
+                }
+
+                return ''
             }
         },
         methods: {
@@ -56,18 +80,26 @@
                 'setInfoPanel'
             ]),
             toggleAudio () {
-                if (this.getAudioStatus === 'play') {
-                    return this.setAudioStatus('pause')
-                }
+                if (this.getCurrentEpisode.audio &&
+                    this.getCurrentEpisode.audio !== undefined &&
+                    this.getCurrentEpisode.audio !== '') {
+                    if (this.getAudioStatus === 'play') {
+                        return this.setAudioStatus('pause')
+                    }
 
-                return this.setAudioStatus('play')
+                    return this.setAudioStatus('play')
+                }
             },
             toggleInfo () {
-                if (this.getInfoPanel) {
-                    return this.setInfoPanel(false)
-                }
+                if (this.getCurrentEpisode.audio &&
+                    this.getCurrentEpisode.audio !== undefined &&
+                    this.getCurrentEpisode.audio !== '') {
+                    if (this.getInfoPanel) {
+                        return this.setInfoPanel(false)
+                    }
 
-                return this.setInfoPanel(true)
+                    return this.setInfoPanel(true)
+                }
             }
         }
     }
