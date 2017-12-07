@@ -15,7 +15,7 @@ let feed = new RSS({
     managingEditor: 'Luigui Delyer',
     webMaster: 'elemencast@s1x.com.br (Luigui Delyer)',
     copyright: '2017 - Luigui Delyer',
-    language: 'PT-br',
+    language: 'pt-br',
     categories: [
         'Front-end',
         'HTML5',

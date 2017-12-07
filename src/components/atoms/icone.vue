@@ -11,12 +11,6 @@
             width: $pixel * 9.75
             min-width: $pixel * 9.75
 
-            &:first-of-type
-                margin-left: 0
-
-            &:last-of-type
-                margin-right: 0
-
             &--tip
                 border-radius: $pixel
                 margin-top: $pixel * -3.5

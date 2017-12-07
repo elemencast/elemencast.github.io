@@ -20,6 +20,11 @@ export default {
     ],
     icons: [
         {
+            href: 'https://elemencast.github.io/static/rss.xml',
+            image: '/static/img/feed.svg',
+            name: 'feed rss'
+        },
+        {
             href: 'https://www.github.com/luiguild',
             image: '/static/img/github.svg',
             name: 'github'
