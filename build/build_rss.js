@@ -8,10 +8,10 @@ currentDate = currentDate.toISOString();
 let feed = new RSS({
     title: 'elemencast',
     description: 'Drops de conteúdo direto sobre diversos assuntos relacionados a Front-end, Javascript, CSS, SASS, Pug, HTML5, programação funcional, NodeJS, mapas e GIS, dentre outros.',
-    feed_url: 'https://elemencast.github.io/static/rss.xml',
-    site_url: 'https://elemencast.github.io',
-    link: 'https://elemencast.github.io',
-    image_url: 'https://elemencast.github.io/static/img/seo-image2.png',
+    feed_url: 'http://elemencast.github.io/static/rss.xml',
+    site_url: 'http://elemencast.github.io',
+    link: 'http://elemencast.github.io',
+    image_url: 'http://elemencast.github.io/static/img/itunes.png',
     managingEditor: 'Luigui Delyer',
     webMaster: 'elemencast@s1x.com.br (Luigui Delyer)',
     copyright: '2017 - Luigui Delyer',
@@ -28,8 +28,8 @@ let feed = new RSS({
     ],
     image: {
         title: 'elemencast',
-        link: 'https://elemencast.github.io',
-        url: 'https://elemencast.github.io/static/img/seo-image2.png'
+        link: 'http://elemencast.github.io',
+        url: 'http://elemencast.github.io/static/img/itunes.png'
     },
     pubDate: currentDate,
     ttl: '60',
@@ -51,7 +51,7 @@ let feed = new RSS({
         {
             'itunes:image': {
                 _attr: {
-                    href: 'https://elemencast.github.io/static/img/seo-image2.png'
+                    href: 'http://elemencast.github.io/static/img/itunes.png'
                 }
             }
         },
@@ -96,13 +96,14 @@ data.episodios.forEach((ep, indx) => {
         lat: -22.8808,
         long: -43.1043,
         enclosure: {
-            url: 'http://elemencast.github.io',
+            url: `http://elemencast.github.io${ep.audio}`,
             file: `.${ep.audio}`
         },
         custom_elements: [
             { 'itunes:author': 'Luigui Delyer' },
             { 'itunes:subtitle': `${ep.titulo.resumido} | ${ep.subtitulo} - elemencast` },
             { 'itunes:summary': `${ep.titulo.completo}` },
+            { 'itunes:duration': `${ep.duracao}` },
             { 'itunes:explicit': 'no' },
             { 'itunes:block': 'no' },
             { 'itunes:owner': [
