@@ -28,7 +28,7 @@
             font-size: $pixel * 2.2
 
         > h4
-            font-size: $pixel * 2
+            font-size: $pixel * 2 - 2
             font-weight: 500
 </style>
 
