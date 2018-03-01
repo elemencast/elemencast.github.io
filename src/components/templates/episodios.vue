@@ -10,7 +10,7 @@
 <template lang="pug">
     #episodios
         seta-scroll(
-            v-if='getEpisodes.length > 3'
+            v-if='getEpisodes.length > 3 && !this.$route.params.id'
         )
 
         loading(
