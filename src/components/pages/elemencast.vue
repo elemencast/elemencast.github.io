@@ -1,5 +1,6 @@
 <style lang="sass">
     @import ../../sass/elemencast
+    @import ../../sass/imports/_media
 
     #elemencast
         > .container
@@ -8,6 +9,9 @@
                 background-repeat: no-repeat
                 background-position: top center
                 background-size: cover
+                
+                +media-mobile
+                    background-size: contain
 
                 > #informacoes
                     background-color: $white
@@ -17,6 +21,9 @@
                     border-style: solid
                     border-width: $pixel * 2.6
                     border-radius: $pixel * 10
+
+                    +media-mobile
+                        transform: scale(0.9) translateY(-9%)
 
                     &__white
                         background-color: #FFF
@@ -39,6 +46,9 @@
                         color: $black
 
         .icones
+            +media-mobile
+                transform: scale(0.8)
+                
             &:hover
                 z-index: 9
 

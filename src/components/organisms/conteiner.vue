@@ -1,5 +1,6 @@
 <style lang="sass">
     @import ../../sass/imports/_extend
+    @import ../../sass/imports/_media
 
     .container
         width: 100%
@@ -9,6 +10,10 @@
             +flex(column, n, flex-start, center)
             width: $pixel * 44.74
             height: $pixel * 55
+
+            +media-mobile()
+                width: 90%
+                height: 92%
 
             > .wrapper
                 padding-top: $pixel * 2.5
