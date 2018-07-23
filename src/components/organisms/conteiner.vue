@@ -4,11 +4,16 @@
     .container
         width: 100%
         +flex(column, n, center, center)
+        +media-mobile
+            z-index: 99
 
         > .content
             +flex(column, n, flex-start, center)
             width: $pixel * 44.74
             height: $pixel * 55
+
+            +media-mobile
+                z-index: 99
 
             > .wrapper
                 padding-top: $pixel * 2.5

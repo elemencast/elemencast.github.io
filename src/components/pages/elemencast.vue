@@ -2,6 +2,9 @@
     @import ../../sass/elemencast
 
     #elemencast
+        +media-mobile
+            transform: scale(0.8)
+
         > .container
             > .content
                 background-image: url('/static/img/background.svg')
@@ -39,6 +42,9 @@
                         color: $black
 
         .icones
+            +media-mobile
+              transform: scale(0.8)
+
             &:hover
                 z-index: 9
 

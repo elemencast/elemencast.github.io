@@ -14,9 +14,24 @@
         +border-box
         +transition(.4s)
 
+        +media-mobile
+            top: 0
+            height: 0
+            opacity: 0
+            background-color: $white
+
     .box
         &--open
-            width: 700px
+            width: $pixel * 87.5
+
+            +media-mobile
+                opacity: 1 !important
+                border-style: solid
+                border-width: $pixel * 2.6
+                border-radius: $pixel * 4
+                z-index: 99 !important
+                width: 100%
+                height: 100vh !important
 
         &--close
             +transition-delay(.4s)
@@ -42,12 +57,25 @@
                     font-weight: 100
                     font-size: $pixel * 2.5
 
+            .button
+                display: none
+
+                +media-mobile
+                    display: inline-block
+                    position: absolute
+                    right: $pixel
+                    top: $pixel
+                    z-index: 9
+
             .content
                 +flex(row, n, space-between, center)
                 opacity: 1
                 width: 100%
                 height: 100%
                 +transition(.5s)
+
+                +media-mobile
+                    +flex(column, n, space-around, center)
 
                 &--show
                     +animation(showContent, 1000ms, ease-in-out, 0ms, 1, normal, running)
@@ -56,14 +84,28 @@
                     opacity: 0
                     +animation(hideContent, 500ms, ease-in-out, 0ms, 1, normal, running)
 
+                > hr.line
+                    display: none
+
+                    +media-mobile
+                        display: block
+                        width: 90%
+                        border-bottom: 2px solid $black
+
                 > .left,
                 > .right
                     width: $pixel * 32
                     height: $pixel * 26
                     overflow: hidden
 
+                    +media-mobile
+                        width: 90%
+                        height: 40vh
+
                     > .seta
                         margin-left: $pixel * 14
+                        +media-mobile
+                            margin-left: $pixel * 16.5
 
                 > .left
                     h2
@@ -146,12 +188,20 @@
 
 <template lang="pug">
     #informacoes(:class='infoStatus')
+        .button.small(
+            @click='toggleInfo()'
+        )
+            img(:src='closeIcon')
+
         .content(:class='showContent')
             .left
                 seta-scroll(v-if='getInfoPanel')
                 .square
                     h2.m__b--m {{episodio.titulo.completo}}
                     pre {{episodio.texto}}
+
+            hr.line
+
             .right
                 seta-scroll(v-if='getInfoPanel')
                 .square
@@ -176,7 +226,7 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import { mapGetters, mapActions } from 'vuex'
     import { setaScroll } from '@/components/atoms'
 
     export default {
@@ -229,9 +279,19 @@
                 }
 
                 return 'content--hide'
+            },
+            closeIcon () {
+                if (this.getInfoPanel) {
+                    return '/static/img/close2.svg'
+                }
+
+                return '/static/img/close.svg'
             }
         },
         methods: {
+            ...mapActions([
+                'setInfoPanel'
+            ]),
             setEpisodes () {
                 if (this.getEpisodes.length > 0) {
                     const episodio = this.getCurrentEpisode
@@ -241,6 +301,17 @@
                     }
 
                     return this.episodio
+                }
+            },
+            toggleInfo () {
+                if (this.getCurrentEpisode.audio &&
+                    this.getCurrentEpisode.audio !== undefined &&
+                    this.getCurrentEpisode.audio !== '') {
+                    if (this.getInfoPanel) {
+                        return this.setInfoPanel(false)
+                    }
+
+                    return this.setInfoPanel(true)
                 }
             }
         },
