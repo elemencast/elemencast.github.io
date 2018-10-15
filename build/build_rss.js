@@ -89,7 +89,7 @@ let data = JSON.parse(episodesJSON);
 /* loop over data and add to feed */
 data.episodios.forEach((ep, indx) => {
     feed.item({
-        title: `#${indx} [${ep.titulo.resumido}] ${ep.titulo.completo}`,
+        title: `#${indx + 1} [${ep.titulo.resumido}] ${ep.titulo.completo}`,
         description: `${ep.descricao}`,
         url: `http://elemencast.github.io/#/episodios/${indx+1}`,
         author: 'Luigui Delyer',
@@ -107,7 +107,7 @@ data.episodios.forEach((ep, indx) => {
         },
         custom_elements: [
             { 'itunes:author': 'Luigui Delyer' },
-            { 'itunes:subtitle': `#${indx} [${ep.titulo.resumido}] ${ep.titulo.completo}` },
+            { 'itunes:subtitle': `#${indx + 1} [${ep.titulo.resumido}] ${ep.titulo.completo}` },
             { 'itunes:summary': `${ep.descricao}` },
             { 'itunes:duration': `${ep.duracao}` },
             { 'itunes:explicit': 'no' },
