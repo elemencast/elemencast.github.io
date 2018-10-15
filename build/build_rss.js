@@ -43,7 +43,7 @@ let feed = new RSS({
         { 'itunes:author': 'Luigui Delyer (elemencast)' },
         { 'itunes:explicit': 'no' },
         { 'itunes:subtitle': 'Que tal explodir seu código todo em componentes?' },
-        { 'itunes:summary': 'Drops de conteúdo direto sobre diversos assuntos relacionados a Front-end, Javascript, CSS, SASS, Pug, HTML5, programação funcional, NodeJS, mapas e GIS, dentre outros' },
+        { 'itunes:summary': 'Drops de conteúdo direto sobre diversos assuntos relacionados a Front-end, Javascript, CSS, SASS, Pug, HTML5, programação funcional, NodeJS, mapas e GIS e qualquer outra coisa que eu achar maneira. Me segue nas redes sociais (@luiguild) e vem trocar ideia comigo!' },
         {
             'itunes:owner': [
                 { 'itunes:name': 'Luigui Delyer' },
