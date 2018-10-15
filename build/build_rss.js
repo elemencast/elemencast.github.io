@@ -7,21 +7,23 @@ currentDate = currentDate.toISOString();
 
 let feed = new RSS({
     title: 'elemencast',
-    description: 'Drops de conteúdo direto sobre diversos assuntos relacionados a Front-end, Javascript, CSS, SASS, Pug, HTML5, programação funcional, NodeJS, mapas e GIS, dentre outros.',
+    description: 'Drops de conteúdo direto sobre diversos assuntos relacionados a Front-end, Javascript, CSS, SASS, Pug, HTML5, programação funcional, NodeJS, mapas e GIS e qualquer outra coisa que eu achar maneira. Me segue nas redes sociais (@luiguild) e vem trocar ideia comigo!',
     feed_url: 'http://elemencast.github.io/static/rss.xml',
     site_url: 'http://elemencast.github.io',
     link: 'http://elemencast.github.io',
-    image_url: 'http://elemencast.github.io/static/img/itunes.png',
+    image_url: 'http://elemencast.github.io/static/img/seo.png',
     managingEditor: 'Luigui Delyer',
     webMaster: 'elemencast@s1x.com.br (Luigui Delyer)',
-    copyright: '2017 - Luigui Delyer',
+    copyright: '2018 - Luigui Delyer',
     language: 'pt-br',
     categories: [
         'Front-end',
         'HTML5',
         'Javascript',
+        'JS',
         'CSS',
         'SASS',
+        'Vue',
         'Web Components',
         'Web Development',
         'Atomic Design'
@@ -29,7 +31,7 @@ let feed = new RSS({
     image: {
         title: 'elemencast',
         link: 'http://elemencast.github.io',
-        url: 'http://elemencast.github.io/static/img/itunes.png'
+        url: 'http://elemencast.github.io/static/img/seo.png'
     },
     pubDate: currentDate,
     ttl: '60',
@@ -51,7 +53,7 @@ let feed = new RSS({
         {
             'itunes:image': {
                 _attr: {
-                    href: 'http://elemencast.github.io/static/img/itunes.png'
+                    href: 'http://elemencast.github.io/static/img/seo.png'
                 }
             }
         },
@@ -85,11 +87,10 @@ let episodesJSON = fs.readFileSync("./static/json/episodios.json");
 let data = JSON.parse(episodesJSON);
 
 /* loop over data and add to feed */
-
 data.episodios.forEach((ep, indx) => {
     feed.item({
-        title: `${ep.titulo.resumido} | ${ep.subtitulo} - elemencast`,
-        description: `${ep.titulo.completo}`,
+        title: `#${indx} [${ep.titulo.resumido}] ${ep.titulo.completo}`,
+        description: `${ep.descricao}`,
         url: `http://elemencast.github.io/#/episodios/${indx+1}`,
         author: 'Luigui Delyer',
         date: ep.data,
@@ -99,10 +100,15 @@ data.episodios.forEach((ep, indx) => {
             url: `http://elemencast.github.io${ep.audio}`,
             file: `.${ep.audio}`
         },
+        image: {
+            title: 'elemencast',
+            link: 'http://elemencast.github.io',
+            url: 'http://elemencast.github.io/static/img/seo.png'
+        },
         custom_elements: [
             { 'itunes:author': 'Luigui Delyer' },
-            { 'itunes:subtitle': `${ep.titulo.resumido} | ${ep.subtitulo} - elemencast` },
-            { 'itunes:summary': `${ep.titulo.completo}` },
+            { 'itunes:subtitle': `#${indx} [${ep.titulo.resumido}] ${ep.titulo.completo}` },
+            { 'itunes:summary': `${ep.descricao}` },
             { 'itunes:duration': `${ep.duracao}` },
             { 'itunes:explicit': 'no' },
             { 'itunes:block': 'no' },

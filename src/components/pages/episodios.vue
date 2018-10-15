@@ -57,6 +57,7 @@
                 padding-top: $pixel + 2
                 width: 100%
                 height: 100%
+                z-index: 9
 
                 > .buttons
                     +flex(row, n, center, center)
@@ -97,6 +98,7 @@
                 bottom: $pixel * -1 / 2
                 width: $pixel * 13.81 + 10
                 height: $pixel * 13
+                z-index: 0
 
             > audio
                 display: none

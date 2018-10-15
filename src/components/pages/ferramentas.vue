@@ -24,7 +24,7 @@
 
                 > .link
                     .title
-                        font-size: $pixel * 2.5
+                        font-size: $pixel * 2
 
                     .subtitle
                         font-size: $pixel * 2

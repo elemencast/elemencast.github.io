@@ -25,6 +25,11 @@ export default {
             name: 'feed rss'
         },
         {
+            href: 'https://open.spotify.com/show/5Chtv58MNINrj6ADC5e8ak?si=7wQaBy4XRnGnqI5SOXpKLQ',
+            image: '/static/img/spotify.svg',
+            name: 'spotify'
+        },
+        {
             href: 'https://www.github.com/luiguild',
             image: '/static/img/github.svg',
             name: 'github'
@@ -122,8 +127,8 @@ export default {
         {
             type: 'trilha sonora',
             href: 'http://dig.ccmixter.org/',
-            title: ['DIG CC MIXTER', 'KARA SQUARE'],
-            subtitle: 'Transmutation',
+            title: ['KARA SQUARE Transmutation', 'DysfunctionAL Where you are'],
+            subtitle: 'DIG CC MIXTER',
             image: '/static/img/cc.png'
         }
     ]
