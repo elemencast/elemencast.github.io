@@ -30,6 +30,7 @@
         episodio-header(
             v-if='$route.params.id'
             :episodio='episodio.id',
+            :estilo='episodio.titulo.style'
             :titulo='episodio.titulo.resumido',
             :subtitulo='episodio.subtitulo'
         )
@@ -55,7 +56,8 @@
             episodio: {
                 titulo: {
                     resumido: '',
-                    completo: ''
+                    completo: '',
+                    style: {}
                 },
                 subtitulo: '',
                 participantes: [],
