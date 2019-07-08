@@ -1,14 +1,14 @@
 init:
-	yarn
+	npm i
 
 build: rss node_modules
-	yarn build
+	npm run build
 
 rss:
 	node ./build/build_rss.js
 
 node_modules: package.json
-	yarn
+	npm i
 
 deploy: build
 	./deploy.sh
